@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmirMohammad.GH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="other/code.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">AmirMohammad</a>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-right">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" class="download-btn">Download Resume</a>
+                    <button class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="container">
+                <div class="home-content">
+                    <p class="greeting">Hi, my name is</p>
+                    <h1 class="name">AmirMohammad Gholampour</h1>
+                    <div class="profession" id="typing-text"></div>
+                    <div class="home-buttons">
+                        <a href="#contact" class="btn btn-primary">Contact Me</a>
+                        <a href="#about" class="btn btn-secondary">About Me</a>
+                    </div>
+                </div>
+                <div class="home-image">
+                    <div class="profile-img-container">
+                        <div class="profile-frame"></div>
+                        <img src="other/image.png" alt="AmirMohammad Gholampour" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        I am a passionate back-end developer with expertise in machine learning and AI research. 
+                        With a strong foundation in Python and various frameworks, I specialize in creating 
+                        robust and scalable back-end solutions. My journey in technology has been driven by 
+                        curiosity and a desire to solve complex problems through innovative approaches.
+                    </p>
+                    <p class="about-text">
+                        Beyond coding, I'm deeply interested in the intersection of artificial intelligence 
+                        and practical applications. I continuously strive to expand my knowledge and skills 
+                        to stay at the forefront of technological advancements.
+                    </p>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-label">Hours of Learning and Working</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" data-count="5">0</div>
+                            <div class="stat-label">Completed Projects</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-label">Happy Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-container">
+                    <div class="skills-column">
+                        <h3 class="skills-title">Soft Skills</h3>
+                        <div class="soft-skills">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4 class="skill-name">Teamwork</h4>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <h4 class="skill-name">Problem Solving</h4>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <h4 class="skill-name">Scrum</h4>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4 class="skill-name">Emotional Intelligence</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-column">
+                        <h3 class="skills-title">Hard Skills</h3>
+                        <div class="hard-skills">
+                            <div class="skill-category">
+                                <h4 class="category-title">Machine Learning</h4>
+                                <ul class="skill-list">
+                                    <li>NumPy</li>
+                                    <li>Matplotlib</li>
+                                    <li>PyTorch</li>
+                                    <li>TensorFlow</li>
+                                    <li>Scikit-learn</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4 class="category-title">Back-end Development</h4>
+                                <ul class="skill-list">
+                                    <li>Django</li>
+                                    <li>Django Rest Framework (DRF)</li>
+                                    <li>JWT</li>
+                                    <li>Authentication systems</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4 class="category-title">Tools</h4>
+                                <ul class="skill-list">
+                                    <li>Git</li>
+                                    <li>Docker</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4 class="category-title">Programming</h4>
+                                <ul class="skill-list">
+                                    <li>Python</li>
+                                    <li>OOP</li>
+                                    <li>Pytest</li>
+                                    <li>Java</li>
+                                    <li>C++</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <p class="contact-text">
+                        I'm always open to new opportunities and collaborations. Feel free to reach out to me 
+                        through any of the platforms below. I'll get back to you as soon as possible!
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/amirmohammad-gholampour/" class="social-link" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/amirmohammadgholampour/" class="social-link" title="GitHub" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://instagram.com/amir_gholampour.2008/" class="social-link" title="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/Amirmohammad_gholampour/" class="social-link" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
