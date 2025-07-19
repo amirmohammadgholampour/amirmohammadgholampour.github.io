@@ -512,98 +512,315 @@ section {
   transform: translateY(-5px);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  #home .container {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .home-content,
-  .home-image {
-    flex: none;
-    width: 100%;
-  }
-
-  .home-buttons {
-    justify-content: center;
-  }
-
-  .profile-img-container {
-    width: 280px;
-    height: 280px;
-    margin-bottom: 30px;
-  }
-
-  .name {
-    font-size: 2.5rem;
-  }
-
-  .profession {
-    font-size: 1.8rem;
-  }
+.nav-links {
+  display: none; /* Hidden by default on small screens */
+  flex-direction: column; /* Stack links vertically when visible */
+  position: fixed; /* Positions the menu over content */
+  top: 80px; /* Adjust based on your header's actual height */
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  z-index: 999; /* Ensure it's above other content */
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-color: var(--bg-secondary);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: left 0.3s;
-    z-index: 999;
+.nav-links.active {
+  display: flex; /* Show when 'active' class is toggled by JavaScript */
+}
+
+.nav-links a {
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* IMPORTANT CHANGE FOR DOWNLOAD BUTTON */
+/* By default, hide the download button from the main nav bar on small screens. */
+.nav-right .download-btn {
+    display: none;
+}
+
+/* When the mobile menu is active, show the download button INSIDE the menu. */
+.nav-links.active + .nav-right .download-btn, /* This specifically targets the btn if it were *after* nav-links */
+.nav-links.active .download-btn { /* This targets if the button is nested *within* nav-links when open */
+    display: block; /* Show the button as a block element */
+    width: auto; /* Allow width to be natural */
+    margin: 10px auto; /* Center it and add some vertical spacing */
+}
+
+/* Ensure the hamburger is always visible on mobile */
+.hamburger {
+  display: block; /* Show hamburger icon on small mobile screens */
+}
+
+/* Home Section Mobile Adjustments */
+#home .container {
+  flex-direction: column; /* Stack home content and image vertically */
+  text-align: center; /* Center text for better mobile readability */
+}
+
+.home-image {
+  order: -1; /* Place image above text on mobile */
+  margin-bottom: 30px;
+}
+
+.name {
+  font-size: 2.5rem; /* Adjust font size for mobile */
+}
+
+.profession {
+  font-size: 1.5rem; /* Adjust font size for mobile */
+  height: auto; /* Allow height to adjust based on content */
+}
+
+.home-buttons {
+  flex-direction: column; /* Stack buttons vertically on mobile */
+  gap: 15px;
+}
+
+/* About Section Mobile Adjustments */
+.stats-container {
+  flex-direction: column; /* Stack stat boxes vertically on mobile */
+}
+
+/* Skills Section Mobile Adjustments */
+.skills-container {
+  flex-direction: column; /* Stack skill columns (soft/hard) vertically on mobile */
+}
+
+.soft-skills,
+.hard-skills {
+  grid-template-columns: 1fr; /* Make skill categories single column */
+}
+
+.skill-card,
+.skill-category {
+  padding: 15px; /* Reduce padding for mobile */
+}
+
+.skills-title {
+  text-align: center; /* Center skills titles */
+}
+
+/* Contact Section Mobile Adjustments */
+.social-links {
+  flex-wrap: wrap; /* Allow social links to wrap to next line */
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-link {
+  width: 50px; /* Smaller social icons for mobile */
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+
+
+/* --- Tablet and Small Desktop Screens (min-width: 768px) --- */
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 30px; /* Slightly more horizontal padding than mobile */
   }
 
-  .nav-links.active {
-    left: 0;
+  /* Header & Navigation */
+  nav {
+    padding: 15px 0; /* Adjust header padding */
+  }
+
+  .nav-links {
+    display: flex; /* Show nav links */
+    flex-direction: row; /* Arrange links horizontally */
+    position: static; /* Reset positioning (no longer fixed/absolute) */
+    background: none; /* Remove background */
+    box-shadow: none; /* Remove shadow */
+    padding: 0;
+    border-top: none;
+    width: auto; /* Allow width to be determined by content */
   }
 
   .hamburger {
-    display: block;
+    display: none; /* Hide hamburger icon */
   }
 
-  .stats-container {
-    flex-direction: column;
+  /* IMPORTANT CHANGE FOR DOWNLOAD BUTTON */
+  /* For larger screens, show the download button in its regular nav-right position */
+  .nav-right .download-btn {
+    display: inline-block; /* Show download button on tablets and larger */
+    margin: 0; /* Reset margin if any was applied for mobile */
   }
 
-  .skills-container {
-    flex-direction: column;
+  /* Home Section */
+  #home .container {
+    flex-direction: row; /* Arrange content and image side-by-side */
+    text-align: left;
   }
 
-  .hard-skills {
-    grid-template-columns: 1fr;
-  }
-
-  .social-links {
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 576px) {
-  .section-title {
-    font-size: 2rem;
+  .home-image {
+    order: unset; /* Reset image order to default (usually right) */
+    margin-bottom: 0;
   }
 
   .name {
-    font-size: 2rem;
+    font-size: 3rem; /* Revert to larger font size */
   }
 
   .profession {
-    font-size: 1.5rem;
-    height: 40px;
+    font-size: 2rem; /* Revert to larger font size */
   }
 
-  .btn {
-    padding: 10px 20px;
+  .home-buttons {
+    flex-direction: row; /* Buttons side-by-side */
   }
 
   .profile-img-container {
-    width: 220px;
-    height: 220px;
+    width: 300px; /* Adjust image container size for tablets */
+    height: 300px;
+  }
+
+  /* About Section */
+  .stats-container {
+    flex-direction: row; /* Display stats in a row */
+    justify-content: space-around;
+  }
+
+  /* Skills Section */
+  .skills-container {
+    flex-direction: row; /* Display skill columns side-by-side */
+    gap: 30px;
+  }
+
+  .soft-skills {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* More compact grid for soft skills */
+  }
+
+  .hard-skills {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* More compact grid for hard skills */
+  }
+
+  .skill-card,
+  .skill-category {
+    padding: 20px; /* Restore padding */
+  }
+
+  /* Contact Section */
+  .social-link {
+    width: 60px; /* Slightly larger social icons */
+    height: 60px;
+    font-size: 1.6rem;
+  }
+}
+
+/* --- Desktop Screens (min-width: 992px) --- */
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px; /* Standard desktop container width */
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 100px 0; /* More vertical padding for desktop sections */
+  }
+
+  .profile-img-container {
+    width: 350px; /* Restore original image size */
+    height: 350px;
+  }
+
+  .soft-skills {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Original grid layout */
+  }
+
+  .hard-skills {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Original grid layout */
+  }
+}
+
+
+
+/* --- Large Desktop Screens (min-width: 1200px) --- */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px; /* Your largest desktop container width */
+  }
+
+  header {
+    padding: 20px 0; /* Adjust header padding for consistency */
+  }
+}
+
+
+
+/* --- Landscape orientation adjustments for very short screens (max-height: 500px) --- */
+/* This is for devices like small phones rotated sideways. */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  main {
+    padding-top: 50px; /* Reduce top padding to account for header */
+    padding-bottom: 20px;
+  }
+
+  section {
+    min-height: auto; /* Allow sections to shrink if content is taller */
+    padding: 40px 0; /* Reduce vertical padding */
+  }
+
+  #home .container {
+    flex-direction: row; /* Ensure side-by-side layout in landscape */
+    align-items: center;
+  }
+
+  .home-content {
+    flex: 1;
+    min-width: 50%; /* Give content more space */
+  }
+  .home-image {
+    flex: 1;
+    min-width: 50%;
+  }
+
+  .profile-img-container {
+    width: 200px; /* Further reduce image size for very short screens */
+    height: 200px;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+  .profession {
+    font-size: 1rem;
+    height: auto;
+  }
+
+  .home-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
+/* --- Print styles --- */
+/* These styles are specifically for when the page is printed. */
+@media print {
+  /* Hide elements not relevant for print */
+  nav,
+  button,
+  .no-print {
+    display: none;
+  }
+
+  /* Ensure text is readable */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  /* Make links useful by showing their URL */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
   }
 }
