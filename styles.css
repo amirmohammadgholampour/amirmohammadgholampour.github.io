@@ -1,3 +1,50 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  border: 5px solid rgba(79, 70, 229, 0.3);
+  border-radius: 50%;
+  border-top-color: #4f46e5;
+  animation: spin 1s linear infinite;
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  z-index: 9999;
+  animation: fadeOut 10s forwards;
+}
+
 :root {
   --bg-primary: #121212;
   --bg-secondary: #1e1e1e;
@@ -539,15 +586,16 @@ section {
 /* IMPORTANT CHANGE FOR DOWNLOAD BUTTON */
 /* By default, hide the download button from the main nav bar on small screens. */
 .nav-right .download-btn {
-    display: none;
+  display: none;
 }
 
 /* When the mobile menu is active, show the download button INSIDE the menu. */
 .nav-links.active + .nav-right .download-btn, /* This specifically targets the btn if it were *after* nav-links */
-.nav-links.active .download-btn { /* This targets if the button is nested *within* nav-links when open */
-    display: block; /* Show the button as a block element */
-    width: auto; /* Allow width to be natural */
-    margin: 10px auto; /* Center it and add some vertical spacing */
+.nav-links.active .download-btn {
+  /* This targets if the button is nested *within* nav-links when open */
+  display: block; /* Show the button as a block element */
+  width: auto; /* Allow width to be natural */
+  margin: 10px auto; /* Center it and add some vertical spacing */
 }
 
 /* Ensure the hamburger is always visible on mobile */
@@ -616,8 +664,6 @@ section {
   height: 50px;
   font-size: 1.5rem;
 }
-
-
 
 /* --- Tablet and Small Desktop Screens (min-width: 768px) --- */
 @media screen and (min-width: 768px) {
@@ -693,11 +739,17 @@ section {
   }
 
   .soft-skills {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* More compact grid for soft skills */
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(180px, 1fr)
+    ); /* More compact grid for soft skills */
   }
 
   .hard-skills {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* More compact grid for hard skills */
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(220px, 1fr)
+    ); /* More compact grid for hard skills */
   }
 
   .skill-card,
@@ -730,15 +782,19 @@ section {
   }
 
   .soft-skills {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Original grid layout */
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Original grid layout */
   }
 
   .hard-skills {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Original grid layout */
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(250px, 1fr)
+    ); /* Original grid layout */
   }
 }
-
-
 
 /* --- Large Desktop Screens (min-width: 1200px) --- */
 @media screen and (min-width: 1200px) {
@@ -750,8 +806,6 @@ section {
     padding: 20px 0; /* Adjust header padding for consistency */
   }
 }
-
-
 
 /* --- Landscape orientation adjustments for very short screens (max-height: 500px) --- */
 /* This is for devices like small phones rotated sideways. */
@@ -798,7 +852,6 @@ section {
     justify-content: center;
   }
 }
-
 
 /* --- Print styles --- */
 /* These styles are specifically for when the page is printed. */

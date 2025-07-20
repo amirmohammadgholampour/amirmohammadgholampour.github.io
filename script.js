@@ -225,3 +225,68 @@ document.querySelectorAll(".social-link").forEach((link, index) => {
     }
   }
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingScreen = document.getElementById("loadingScreen");
+
+  // Generate a unique timestamp for this browser session
+  if (!sessionStorage.getItem("sessionId")) {
+    sessionStorage.setItem("sessionId", Date.now().toString());
+  }
+
+  const currentSessionId = sessionStorage.getItem("sessionId");
+  const lastSessionId = localStorage.getItem("lastSessionId");
+
+  if (currentSessionId === lastSessionId) {
+    // Same session (page reload) - hide loader immediately
+    loadingScreen.style.display = "none";
+  } else {
+    // New session or first visit - show loader and save session ID
+    localStorage.setItem("lastSessionId", currentSessionId);
+
+    // Hide the loading screen after 10 seconds
+    setTimeout(() => {
+      loadingScreen.style.visibility = "hidden";
+    }, 10000);
+  }
+
+  // For testing: Button to simulate closing and reopening the site
+  document.getElementById("resetButton").addEventListener("click", function () {
+    sessionStorage.removeItem("sessionId");
+    alert("Session cleared! Reload the page to simulate reopening the site.");
+  });
+});
+
+(function () {
+  function c() {
+    var b = a.contentDocument || a.contentWindow.document;
+    if (b) {
+      var d = b.createElement("script");
+      d.innerHTML =
+        "window.__CF$cv$params={r:'961ee73526033468',t:'MTc1Mjk3NzIyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+      b.getElementsByTagName("head")[0].appendChild(d);
+    }
+  }
+  if (document.body) {
+    var a = document.createElement("iframe");
+    a.height = 1;
+    a.width = 1;
+    a.style.position = "absolute";
+    a.style.top = 0;
+    a.style.left = 0;
+    a.style.border = "none";
+    a.style.visibility = "hidden";
+    document.body.appendChild(a);
+    if ("loading" !== document.readyState) c();
+    else if (window.addEventListener)
+      document.addEventListener("DOMContentLoaded", c);
+    else {
+      var e = document.onreadystatechange || function () {};
+      document.onreadystatechange = function (b) {
+        e(b);
+        "loading" !== document.readyState &&
+          ((document.onreadystatechange = e), c());
+      };
+    }
+  }
+})();
